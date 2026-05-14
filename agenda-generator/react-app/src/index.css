@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%; /* #F6F7F8 - Catalyst Grey */
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 71% 50%; /* #255AD8 - Commercial Blue */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 85%; /* Darker for better definition */
+    --input: 214.3 31.8% 85%;
+    --ring: 222 71% 50%;
+
+    --radius: 0.375rem; /* Sharper corners for enterprise feel */
+
+    /* Catalyst Specific Tokens */
+    --sidebar-primary: 220.71, 73.68%, 22.35%; /* Deep Navy - #0C141C */
+    --sidebar-secondary: 0 0% 100%; /* Pure White */
+    --tab-active: 222 71% 50%;
+  }
+
+  .dark {
+    /* Keeping simple for now, focusing on light mode replication as per screenshot */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer components {
+  .console-card {
+    @apply bg-white border border-slate-300 shadow-sm rounded-lg;
+  }
+
+  .primary-sidebar {
+    @apply bg-[hsl(var(--sidebar-primary))] text-white/50 w-20 flex flex-col items-center py-4 gap-4 transition-all duration-300 z-50;
+  }
+
+  .primary-nav-item {
+    @apply flex flex-col items-center justify-center w-full py-3 gap-1 text-white/50 hover:text-white hover:bg-white/10 transition-all border-l-2 border-transparent relative;
+  }
+
+  .primary-nav-item.active {
+    @apply text-white bg-white/10 border-white;
+  }
+
+  .primary-nav-item span.icon {
+    @apply text-[22px];
+  }
+
+  .primary-nav-item span.label {
+    @apply text-[9px] font-bold uppercase tracking-wider;
+  }
+
+  .secondary-sidebar {
+    @apply bg-white border-r border-slate-300 w-64 flex flex-col py-0 transition-all duration-300 ease-in-out;
+  }
+
+  .console-nav-item {
+    @apply flex items-center gap-3 px-6 py-3.5 text-[13px] font-semibold transition-all hover:bg-slate-50 hover:text-primary border-l-4 border-transparent;
+  }
+
+  .console-nav-item.active {
+    @apply bg-blue-50/40 text-primary border-primary;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Datepicker Overrides - Adjusted for Console Look */
+.react-datepicker {
+  @apply bg-white border border-slate-300 shadow-xl rounded-lg font-sans overflow-hidden !important;
+}
+
+.react-datepicker__header {
+  @apply bg-slate-50 border-b border-slate-100 pt-3 pb-2 !important;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-primary rounded-md !important;
+}
+
+.react-datepicker__time-container {
+  @apply border-l border-slate-100 !important;
+}
+
+/* Slide-over Sidebar (Sheet) */
+.sheet-overlay {
+  @apply fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] transition-opacity duration-300;
+}
+
+.sheet-content {
+  @apply fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-[101] transform transition-transform duration-300 ease-in-out border-l border-slate-200;
+}
+
+.sheet-open .sheet-content {
+  @apply translate-x-0;
+}
+
+.sheet-closed .sheet-content {
+  @apply translate-x-full;
+}
+
+.sheet-open .sheet-overlay {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.sheet-closed .sheet-overlay {
+  @apply opacity-0 pointer-events-none;
+}
+/* Professional Print Styles for Agenda PDF Export */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: auto;
+  }
+
+  body {
+    background: white !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Hide UI elements not needed in PDF */
+  .no-print,
+  button,
+  .sidebar,
+  .primary-sidebar,
+  .secondary-sidebar,
+  nav,
+  header:not(.print-header) {
+    display: none !important;
+  }
+
+  /* Layout adjustments for print */
+  .p-8, .p-10, .p-12 {
+    padding: 0 !important;
+  }
+
+  .console-card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure text is dark and readable */
+  .text-slate-500, .text-slate-400 {
+    color: #475569 !important;
+  }
+
+  /* Target tailwind background classes safely */
+  [class*="bg-\\[#f6f7f8\\]"] {
+    background: white !important;
+  }
+
+  /* Force grid/flex layouts if they break */
+  .grid {
+    display: grid !important;
+  }
+
+  /* Break entries correctly */
+  .agenda-entry {
+    break-inside: avoid;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Premium Header for Print */
+  .print-only-header {
+    display: block !important;
+    border-bottom: 2px solid #255AD8;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.print-only-header {
+  display: none;
+}
