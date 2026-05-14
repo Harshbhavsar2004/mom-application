@@ -1,0 +1,9 @@
+node_modules/
+.build/
+catalyst-debug.log
+.env
+.envofdevelopment
+.envsample
+package-lock.json
+react-app/node_modules/
+react-app/build/

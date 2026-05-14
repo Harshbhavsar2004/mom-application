@@ -1,0 +1,11 @@
+{
+	"deployment": {
+		"name": "authentication",
+		"stack": "node20",
+		"type": "basicio",
+		"env_variables": {}
+	},
+	"execution": {
+		"main": "index.js"
+	}
+}

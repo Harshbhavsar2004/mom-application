@@ -1,0 +1,11 @@
+{
+	"name": "agenda_function",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "harsh.connectwithme@gmail.com",
+	"dependencies": {
+		"busboy": "^1.6.0",
+		"nodemailer": "^8.0.1",
+		"zcatalyst-sdk-node": "latest"
+	}
+}

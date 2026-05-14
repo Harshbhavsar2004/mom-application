@@ -1,0 +1,6 @@
+node_modules/
+catalyst-debug.log
+.env
+.envofdevelopment
+.envsample
+package-lock.json

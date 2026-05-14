@@ -1,0 +1,13 @@
+{
+	"name": "mom_generator_function",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "harsh.connectwithme@gmail.com",
+	"dependencies": {
+		"@google/genai": "^1.42.0",
+		"axios": "^1.13.5",
+		"dotenv": "^17.3.1",
+		"googleapis": "^171.4.0",
+		"zcatalyst-sdk-node": "latest"
+	}
+}

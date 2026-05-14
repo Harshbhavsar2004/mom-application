@@ -1,0 +1,6 @@
+CLIENT_ID=1000.P67600GNQKPGLK46TX3E1CE74FFNHR
+CLIENT_SECRET_IN=7b36c13ecdd35121958914768372a4e7cba0e4c610
+CLIENT_SECRET_US=ccc676bcb61ef12bc21a0a22e53d7c87c43d773744
+GEMINI_API_KEY=AIzaSyALe3oEpyNGNPou3O0Hu-5jLPLG03MuoKc
+REDIRECT_URI=https://mom-generator-60065948077.development.catalystserverless.in/server/mom_generator_function/callback
+FRONTEND_URL=https://mom-generator-60065948077.development.catalystserverless.in
